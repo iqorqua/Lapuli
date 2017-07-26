@@ -1,0 +1,450 @@
+﻿ {% load staticfiles %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Лапуні</title>
+	<meta name="author" content="Ihor P" />
+	<meta name="description" content="Shop for yours kitty!" />
+	<meta name="keywords"  content="fullpage shop" />
+	<meta name="Resource-type" content="Document" />
+
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700&amp;subset=cyrillic-ext,greek-ext,latin-ext" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/jquery.fullPage.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/examples.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/style.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animate.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/font-awesome.min.css'%}">
+    <link rel="icon" href="{% static 'app/img/icon.png'%}">
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+            
+	<![endif]-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+	<script type="text/javascript" src="{% static 'app/scripts/scrolloverflow.js'%}"></script>
+	<script type="text/javascript" src="{% static 'app/scripts/bootstrap.js'%}"></script>
+	<script type="text/javascript" src="{% static 'app/scripts/jquery.fullPage.js'%}"></script>
+	<script type="text/javascript" src="{% static 'app/scripts/jquery_cookie.js'%}"></script>
+	<script type="text/javascript" src="{% static 'app/scripts/examples.js'%}"></script>
+	<script type="text/javascript">
+	 $(document).ready(function() {
+			function initialization(){
+				$('#myContainer').fullpage({
+					sectionsColor: ['#1b1a1a', '#1b1a1a', '#1b1a1a', '#1b1a1a','#1b1a1a', '#1b1a1a'],
+					anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage','5thpage', 'lastPage'],
+					resize: false,
+					animateAnchor:false,
+					scrollOverflow: true,
+					autoScrolling:true,
+					responsive: 900,
+					fitSection: false,
+					menu: '#menu',
+					navigation:true,
+					continuousVertical:true,
+					paddingTop: '20px',
+					css3: true,
+					onLeave: function(index, nextIndex, direction){
+						console.log("onLeave--" + "index: " + index + " nextIndex: " + nextIndex + " direction: " +  direction);
+					},
+					afterLoad: function(anchorLink, index){
+						console.log("afterLoad--" + "anchorLink: " + anchorLink + " index: " + index );
+					},
+					afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
+						console.log("afterSlideLoad--" + "anchorLink: " + anchorLink + " index: " + index + " slideAnchor: " + slideAnchor + " slideIndex: " + slideIndex);
+					},
+					onSlideLeave: function(anchorLink, index, slideIndex, direction){
+						console.log("onSlideLeave--" + "anchorLink: " + anchorLink + " index: " + index + " slideIndex: " + slideIndex + " direction: " + direction);
+					},
+					afterRender: function(){
+						console.log("afterRender");
+					},
+					afterResize: function(){
+						console.log("afterResize");
+					}
+				});
+			}
+
+			//fullPage.js initialization
+            initialization()
+            if ($.cookie('review') == "success") {
+                $('#successModal').modal('show'); 
+                $.removeCookie('review');
+            }
+            $('#langBtn').on("click", function () {
+                if ($.cookie('lang') == undefined)
+                    $.cookie('lang', 'ua');
+                else
+
+                    if ($.cookie('lang') == 'ru'){
+                        $.removeCookie('lang');
+                         $.cookie('lang', 'ua');
+                      }
+                    else {
+                            $.removeCookie('lang');
+                            $.cookie('lang', 'ru');
+                    }
+                location.reload();
+            });
+
+			$('#moveSectionUp').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.moveSectionUp();
+			});
+
+			$('#moveSectionDown').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.moveSectionDown();
+			});
+
+			$('#moveTo').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.moveTo(2, 3);
+			});
+
+			$('#silentMoveTo').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.silentMoveTo(2);
+			});
+
+			$('#silentMoveToSlide').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.silentMoveTo(2, 3);
+			});
+
+			$('#moveSlideRight').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.moveSlideRight();
+			});
+
+			$('#moveSlideLeft').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.moveSlideLeft();
+			});
+
+			$('#setAutoScrollingFalse').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setAutoScrolling(false);
+			});
+
+			$('#setAutoScrollingTrue').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setAutoScrolling(true);
+			});
+
+			$('#setAllowScrollingFalse').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setAllowScrolling(false);
+			});
+
+			$('#setAllowScrollingTrue').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setAllowScrolling(true);
+			});
+
+			$('#setKeyboardScrollingFalse').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setKeyboardScrolling(false);
+			});
+
+			$('#setKeyboardScrollingTrue').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setKeyboardScrolling(true);
+			});
+
+			$('#setScrollingSpeed1500').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setScrollingSpeed(2500);
+			});
+
+			$('#setScrollingSpeed700').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.setScrollingSpeed(700);
+			});
+
+			$('#destroy').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.destroy('all');
+			});
+
+			$('#undestroy').click(function(e){
+				e.preventDefault();
+
+				//fullPage.js initialization
+				initialization();
+			});
+
+			$('#reBuild').click(function(e){
+				e.preventDefault();
+				$.fn.fullpage.reBuild();
+			});
+
+			$('#setLockAnchorsTrue').click(function(e){
+				e.preventDefault;
+				$.fn.fullpage.setLockAnchors(true);
+			});
+
+			$('#setLockAnchorsFalse').click(function(e){
+				e.preventDefault;
+				$.fn.fullpage.setLockAnchors(false);
+			});
+		});
+	</script>
+
+	<style>
+		#actions{
+			position:fixed;
+			top: 73px;
+			left: 30px;
+			z-index: 99999;
+		}
+		#actions a{
+			background: rgba(0,0,0,0.8);
+			padding: 7px;
+			margin: 2px;
+			color: #ccc;
+			display: inline-block;
+		}
+		#actions a:hover{
+			color: #fff;
+			background: #81A140;
+		}
+
+		/* Overwriting styles for control arrows for slides
+		* --------------------------------------- */
+		.fp-controlArrow.fp-prev {
+            border-color: rgba(0, 0, 0, 0) dimgrey rgba(0, 0, 0, 0);
+			left: 50px;
+		}
+		.fp-controlArrow.fp-next{
+			right: 50px;
+            border-color: rgba(0, 0, 0, 0) dimgrey rgba(0, 0, 0, 0);
+		}
+	</style>
+
+</head>
+<body> 
+<div class="modal fade" tabindex="-1" role="dialog" id="successModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">{{local.19}}</h3>
+      </div>
+      <div class="modal-body">
+        <p><h5>{{local.20}}</h5></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-piramiry" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<ul id="menu">
+	<li data-menuanchor="firstPage"><a href="#firstPage"><img src="{% static 'app/img/logo.png'%}" style="height:45px; width:70px">  {{ local.0 }}</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">{{ local.1 }}</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">{{ local.2 }}</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">{{ local.3 }}</a></li>
+	<li data-menuanchor="5thpage"><a href="#5thpage">{{ local.4 }}</a></li>
+	<li data-menuanchor="lang" id="langBtn"><img src="{% static 'app/img/'%}{{local.21}}" style="height:32px; width:32px" /></li>
+</ul>
+
+<div id="myContainer">
+
+	<div class="section" id="section0" style="background:url({% static 'app/img/bg-banner03.jpg'%}); background-color: white; background-size: cover;">
+        <div class="section-padding wow fadeIn delay-01s animated">
+			<div class="banner-text" style="margin-left:60px; margin-top:90px; text-align:left; color: black;">
+                <h2 style="color: black;">{{ local.5 }}</h2>
+                <p style="color: black;">{{ local.6 }}</p>
+                <p style="font-weight:700;">{{ local.7 }}</p>
+              </div>
+		</div>
+    </div>
+	<div class="section" id="section1" style="background:url({% static 'app/img/background-image_4.png'%}); background-color: white; background-size: cover;">
+        {% for good in goods %}
+            <div class="slide">
+                
+                <div class="row i-am-centered" style="padding-right:110px; color:lightgrey;">
+                    <div class="col-xs-6 col-md-8 col-lg-7 col-centered"  >
+                        <img src="{{good.image.url}}" style="width:inherit" />
+                    </div>
+                    <div class="col-xs-6 col-md-4 col-lg-5 col-centered">
+                        <h3 style="color:lightgrey;">{{good.good_name}}</h3>
+                        <h5 style="color:lightgrey;">{{good.description}}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-3 col-sm-offset-8 col-md-offset-10 col-lg-offset-10">
+                        <h1 style="color:lightgrey;">{{good.price}} грн.</h1>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+	</div>
+	<div class="section" id="section2" style="background:url({% static 'app/img/cat_white.png'%}); background-color: white; background-size: cover;">
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                <div id="mapdiv" style="height:200px"></div>
+                <p></p>
+                <div id="mapdiv1" style="height:200px"></div>
+            </div>
+            <div class="col-md-8 col-xs-6" style="color:darkgray">
+                <div class="container-fluid">
+                    <div class="container">
+	                    <div >
+                           <div class="profile-card text-center">
+                               <h2 class="hvr-underline-from-center" style="color:darkgray">{{ local.8 }}</h2>
+                               <div>{{ local.9 }}</div>
+                               <p></p>
+                                   <div class="row" >  
+                <div class="col-lg-4 col-lg-offset-1  text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>+38050-818-78-02</p>
+                </div>                
+                <div class="col-lg-4  col-lg-offset-1 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>+38097-301-14-74</p>
+                </div>
+                               </div>
+                               <div class="row" >  
+                <div class="col-lg-4 col-lg-offset-1 text-center">
+                    <i class="fa fa-map fa-4x sr-contact"></i>
+                    <p>{{ local.10 }}</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-1 text-center">
+                    <i class="fa fa-map fa-4x sr-contact"></i>
+                    <p>{{ local.11 }}</p>
+                </div>
+</div>
+                    </div>
+                             <div class="container-fluid">
+                                 
+                                 </div>
+                            </div>
+                     </div>
+                    <div class="container">
+                                      <a href="http://www.twitter.com/mike_youngg"><i class="fa fa-twitter fa-2x"></i></a>
+                                      <a href="http://www.fb.com/"><i class="fa fa-facebook fa-2x"></i></a>
+                                      <a href="http://www.vk.com"><i class="fa fa-vk fa-2x"></i></a>
+                                      <a href="http://www.youtube.com/"><i class="fa fa-youtube fa-2x"></i></a>
+                                      <a href="mailto:michael_y@live.co.uk"><i class="fa fa-envelope-o fa-2x"></i></a>
+                                      <a href="http://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a>
+                                 </div>
+                   </div>
+           </div>
+        </div>
+    </div>
+	<div class="section" style="background-color:dimgrey" id="section3" >
+      <div class="container">
+        <div class="row">
+        <div class="col-md-12 is-animated">
+          <div class="contact-sec text-center">
+            <h2>{{ local.12 }}</h2>
+            <p>{{ local.13 }}</p>
+          </div>
+        </div>
+        
+        <div class="col-md-8 col-md-push-2">
+            <div id="sendmessage">Вашо отзыв принят. Спаибо!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="reviewer_name" class="form-control" id="name" placeholder="{{ local.14 }}" data-rule="minlen:4" data-msg="Введите не менее 4 символов" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="reviewer_email" id="email" placeholder="{{ local.15 }}" data-rule="email" data-msg="Введите корректный адрес" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="reviewer_text" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="{{ local.16 }}"></textarea>
+                    <div class="validation"></div>
+                </div>
+                
+                <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">{{ local.17 }}</button></div>
+            </form>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+    <div class="section" style="background-color:dimgrey; background:url({% static 'app/img/cat_blue.png'%}); background-size: cover;" id="section3" >
+         
+        <div class="container"style="padding:200px">
+            <div class="contact-sec text-center">
+                 <h2>{{ local.18 }}</h2>
+            </div>     
+         {%for review in reviews %}
+      <div class="jumbotron" style="padding:5px">
+         <p class="lead" style="text-align:left; padding:0px; ">{{review.reviewer_name}}<span style="text-align:right; float:right;font-size: x-small;">{{review.reviewer_date}}</span></p>
+         <p><h6 style="text-align:justify">{{review.reviewer_text}}</h6></p>
+          
+        </div>
+                    {% if review.reviewer_answer %}
+                    <div class="jumbotron" style="padding:5px; margin-top:-30px; margin-left:50%; width:50%">
+                        <p class="lead" style="text-align:left; padding:0px; font-size:small; font-style:italic; font-weight: bold; ">Адміністрація Лапуні</p>
+                        <p><h6 style="text-align:justify">{{review.reviewer_answer}}</h6></p>
+                        </div>
+                  {%endif%}
+         {%endfor%}
+    </div>
+</div>
+</div>
+
+<script src="{% static 'app/scripts/wow.min.js'%}"></script>
+<script>
+    new WOW().init();
+</script>
+<script>
+    map = new OpenLayers.Map("mapdiv");
+    map.addLayer(new OpenLayers.Layer.OSM());
+
+    var lonLat = new OpenLayers.LonLat(30.669622, 50.426294)
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            map.getProjectionObject() // to Spherical Mercator Projection
+          );
+          
+    var zoom=16;
+
+    var markers = new OpenLayers.Layer.Markers( "Markers" );
+    map.addLayer(markers);
+    
+    markers.addMarker(new OpenLayers.Marker(lonLat));
+    
+    map.setCenter(lonLat, zoom);
+
+     map1 = new OpenLayers.Map("mapdiv1");
+    map1.addLayer(new OpenLayers.Layer.OSM());
+
+    var lonLat1 = new OpenLayers.LonLat(30.683978, 50.394506)
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            map1.getProjectionObject() // to Spherical Mercator Projection
+          );
+          
+
+    var markers1 = new OpenLayers.Layer.Markers( "Markers" );
+    map1.addLayer(markers1);
+    
+    markers1.addMarker(new OpenLayers.Marker(lonLat1));
+    
+    map1.setCenter (lonLat1, zoom);
+  </script>
+</body>
+</html>
+
+
+  
+	   
+ 
+   
