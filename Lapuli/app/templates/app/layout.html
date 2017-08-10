@@ -259,33 +259,34 @@
 
 <div id="myContainer">
 
-	<div class="section" id="section0" style="background:url({% static 'app/img/bg-banner03.jpg'%}); background-color: white; background-size: cover;">
-        <div class="section-padding wow fadeIn delay-01s animated">
-			<div class="banner-text" style="margin-left:60px; margin-top:90px; text-align:left; color: black;">
-                <h2 style="color: black;">{{ local.5 }}</h2>
-                <p style="color: black;">{{ local.6 }}</p>
-                <p style="font-weight:700;">{{ local.7 }}</p>
-              </div>
-		</div>
+	<div class="section" id="section0" style="background:url({% static 'app/img/bg-banner04.jpg'%}); background-color: white; background-size: cover;">
+            <div class="section-padding wow fadeIn delay-01s animated">
+			    <div class="banner-text" style="margin-left:60px; margin-top:90px; text-align:left; color: black;">
+                    <h2 style="color: black;">{{ local.5 }}</h2>
+                    <p style="color: black;">{{ local.6 }}</p>
+                    <p style="font-weight:700;">{{ local.7 }}</p>
+                  </div>
+		    </div>
     </div>
 	<div class="section" id="section1" style="background:url({% static 'app/img/background-image_4.png'%}); background-color: white; background-size: cover;">
         {% for good in goods %}
             <div class="slide">
                 
                 <div class="row i-am-centered" style="padding-right:110px; color:lightgrey;">
-                    <div class="col-xs-6 col-md-8 col-lg-7 col-centered"  >
+                    <div class="col-xs-7 col-md-9 col-lg-8 col-centered"  >
                         <img src="{{good.image.url}}" style="width:inherit" />
                     </div>
-                    <div class="col-xs-6 col-md-4 col-lg-5 col-centered">
+                    <div class="col-xs-5 col-md-3 col-lg-4 col-centered">
                         <h3 style="color:lightgrey;">{{good.good_name}}</h3>
                         <h5 style="color:lightgrey;">{{good.description}}</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-offset-3 col-sm-offset-8 col-md-offset-10 col-lg-offset-10">
+                        <div class="row">
+                    <div class="container-fluid" style="text-align:right">
                         <h1 style="color:lightgrey;">{{good.price}} грн.</h1>
                     </div>
                 </div>
+                    </div>
+                </div>
+                
             </div>
         {% endfor %}
 	</div>
@@ -342,7 +343,7 @@
            </div>
         </div>
     </div>
-	<div class="section" style="background-color:dimgrey" id="section3" >
+	<div class="section" style="background-color:dimgrey; background:url({% static 'app/img/cat_rew.png'%})" id="section3" >
       <div class="container">
         <div class="row">
         <div class="col-md-12 is-animated">

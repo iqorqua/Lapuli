@@ -75,6 +75,8 @@
     <Content Include="app\static\app\img\background-image_4.png" />
     <Content Include="app\static\app\img\bg-banner03.jpg" />
     <Content Include="app\static\app\img\cat_blue.png" />
+    <Content Include="app\static\app\img\cat_face.png" />
+    <Content Include="app\static\app\img\cat_rew.png" />
     <Content Include="app\static\app\img\cat_white.png" />
     <Content Include="app\static\app\img\icon.png" />
     <Content Include="app\static\app\img\logo.png" />
