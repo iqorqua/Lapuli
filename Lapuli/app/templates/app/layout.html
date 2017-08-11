@@ -38,7 +38,7 @@
 	 $(document).ready(function() {
 			function initialization(){
 				$('#myContainer').fullpage({
-					sectionsColor: ['#1b1a1a', '#1b1a1a', '#1b1a1a', '#1b1a1a','#1b1a1a', '#1b1a1a'],
+					sectionsColor: ['#f7f4ee', '#f7f4ee', '#f7f4ee', '#f7f4ee','#f7f4ee', '#f7f4ee'],
 					anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage','5thpage', 'lastPage'],
 					resize: false,
 					animateAnchor:false,
@@ -254,16 +254,16 @@
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">{{ local.2 }}</a></li>
 	<li data-menuanchor="4thpage"><a href="#4thpage">{{ local.3 }}</a></li>
 	<li data-menuanchor="5thpage"><a href="#5thpage">{{ local.4 }}</a></li>
-	<li data-menuanchor="lang" id="langBtn"><img src="{% static 'app/img/'%}{{local.21}}" style="height:32px; width:32px" /></li>
+	<li data-menuanchor="lang" id="langBtn"><a>{{local.21}}</a></li>
 </ul>
 
 <div id="myContainer">
 
-	<div class="section" id="section0" style="background:url({% static 'app/img/bg-banner04.jpg'%}); background-color: white; background-size: cover;">
+	<div class="section" id="section0" style="background:url({% static 'app/img/main.jpg'%}); background-color: white; background-size: cover; ">
             <div class="section-padding wow fadeIn delay-01s animated">
-			    <div class="banner-text" style="margin-left:60px; margin-top:90px; text-align:left; color: black;">
-                    <h2 style="color: black;">{{ local.5 }}</h2>
-                    <p style="color: black;">{{ local.6 }}</p>
+			    <div class="banner-text" style="margin-left:60px; margin-top:90px; text-align:left; color: whitesmoke;">
+                    <h2 style="color: whitesmoke;">{{ local.5 }}</h2>
+                    <p style="color: whitesmoke;">{{ local.6 }}</p>
                     <p style="font-weight:700;">{{ local.7 }}</p>
                   </div>
 		    </div>
@@ -272,16 +272,16 @@
         {% for good in goods %}
             <div class="slide">
                 
-                <div class="row i-am-centered" style="padding-right:110px; color:lightgrey;">
+                <div class="row i-am-centered" style="padding-right:110px; color:black;">
                     <div class="col-xs-7 col-md-9 col-lg-8 col-centered"  >
                         <img src="{{good.image.url}}" style="width:inherit" />
                     </div>
                     <div class="col-xs-5 col-md-3 col-lg-4 col-centered">
-                        <h3 style="color:lightgrey;">{{good.good_name}}</h3>
-                        <h5 style="color:lightgrey;">{{good.description}}</h5>
+                        <h2 style="color:black;">{{good.good_name}}</h2>
+                        <h5 style="color:black;">{{good.description}}</h5>
                         <div class="row">
                     <div class="container-fluid" style="text-align:right">
-                        <h1 style="color:lightgrey;">{{good.price}} грн.</h1>
+                        <h1 style="color:dimgray;">{{good.price}} грн.</h1>
                     </div>
                 </div>
                     </div>
@@ -297,12 +297,12 @@
                 <p></p>
                 <div id="mapdiv1" style="height:200px"></div>
             </div>
-            <div class="col-md-8 col-xs-6" style="color:darkgray">
+            <div class="col-md-8 col-xs-6" style="color:black">
                 <div class="container-fluid">
                     <div class="container">
 	                    <div >
                            <div class="profile-card text-center">
-                               <h2 class="hvr-underline-from-center" style="color:darkgray">{{ local.8 }}</h2>
+                               <h2 class="hvr-underline-from-center" style="color:black">{{ local.8 }}</h2>
                                <div>{{ local.9 }}</div>
                                <p></p>
                                    <div class="row" >  
@@ -348,8 +348,8 @@
         <div class="row">
         <div class="col-md-12 is-animated">
           <div class="contact-sec text-center">
-            <h2>{{ local.12 }}</h2>
-            <p>{{ local.13 }}</p>
+            <h2 style="color:black">{{ local.12 }}</h2>
+            <p style="color:black">{{ local.13 }}</p>
           </div>
         </div>
         
@@ -359,15 +359,15 @@
             <form action="" method="post" role="form" class="">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="text" name="reviewer_name" class="form-control" id="name" placeholder="{{ local.14 }}" data-rule="minlen:4" data-msg="Введите не менее 4 символов" />
+                    <input type="text" style="border-color:dimgray" name="reviewer_name" class="form-control" id="name" placeholder="{{ local.14 }}" data-rule="minlen:4" data-msg="Введите не менее 4 символов" />
                     <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" name="reviewer_email" id="email" placeholder="{{ local.15 }}" data-rule="email" data-msg="Введите корректный адрес" />
+                    <input type="email" style="border-color:dimgray" class="form-control" name="reviewer_email" id="email" placeholder="{{ local.15 }}" data-rule="email" data-msg="Введите корректный адрес" />
                     <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" name="reviewer_text" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="{{ local.16 }}"></textarea>
+                    <textarea class="form-control" style="border-color:dimgray" name="reviewer_text" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="{{ local.16 }}"></textarea>
                     <div class="validation"></div>
                 </div>
                 
@@ -382,16 +382,16 @@
          
         <div class="container"style="padding:200px">
             <div class="contact-sec text-center">
-                 <h2>{{ local.18 }}</h2>
+                 <h2 style="color:black">{{ local.18 }}</h2>
             </div>     
          {%for review in reviews %}
-      <div class="jumbotron" style="padding:5px">
+      <div class="jumbotron" style="padding:5px; background-color:transparent; border:groove;">
          <p class="lead" style="text-align:left; padding:0px; ">{{review.reviewer_name}}<span style="text-align:right; float:right;font-size: x-small;">{{review.reviewer_date}}</span></p>
          <p><h6 style="text-align:justify">{{review.reviewer_text}}</h6></p>
           
         </div>
                     {% if review.reviewer_answer %}
-                    <div class="jumbotron" style="padding:5px; margin-top:-30px; margin-left:50%; width:50%">
+                    <div class="jumbotron" style="padding:5px; margin-top:-30px; margin-left:50%; width:50%; background-color:transparent; border:groove;">
                         <p class="lead" style="text-align:left; padding:0px; font-size:small; font-style:italic; font-weight: bold; ">Адміністрація Лапуні</p>
                         <p><h6 style="text-align:justify">{{review.reviewer_answer}}</h6></p>
                         </div>

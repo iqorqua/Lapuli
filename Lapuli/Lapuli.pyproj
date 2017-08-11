@@ -80,6 +80,7 @@
     <Content Include="app\static\app\img\cat_white.png" />
     <Content Include="app\static\app\img\icon.png" />
     <Content Include="app\static\app\img\logo.png" />
+    <Content Include="app\static\app\img\main.jpg" />
     <Content Include="app\static\app\img\ru.ico" />
     <Content Include="app\static\app\img\ua.ico" />
     <Content Include="app\static\app\img\ua.png" />
