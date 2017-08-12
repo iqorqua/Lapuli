@@ -76,12 +76,14 @@
     <Content Include="app\static\app\img\bg-banner03.jpg" />
     <Content Include="app\static\app\img\cat_blue.png" />
     <Content Include="app\static\app\img\cat_face.png" />
-    <Content Include="app\static\app\img\cat_rew.png" />
+    <Content Include="app\static\app\img\cat_face_low.png" />
     <Content Include="app\static\app\img\cat_white.png" />
     <Content Include="app\static\app\img\icon.png" />
+    <Content Include="app\static\app\img\kitty.png" />
     <Content Include="app\static\app\img\logo.png" />
     <Content Include="app\static\app\img\main.jpg" />
     <Content Include="app\static\app\img\ru.ico" />
+    <Content Include="app\static\app\img\top_logo.png" />
     <Content Include="app\static\app\img\ua.ico" />
     <Content Include="app\static\app\img\ua.png" />
     <Content Include="app\static\app\scripts\examples.js" />

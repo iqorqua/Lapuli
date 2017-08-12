@@ -220,14 +220,31 @@
 		/* Overwriting styles for control arrows for slides
 		* --------------------------------------- */
 		.fp-controlArrow.fp-prev {
-            border-color: rgba(0, 0, 0, 0) dimgrey rgba(0, 0, 0, 0);
+            border-color: rgba(0, 0, 0, 0) #034f2f rgba(0, 0, 0, 0);
 			left: 50px;
 		}
 		.fp-controlArrow.fp-next{
 			right: 50px;
-            border-color: rgba(0, 0, 0, 0) dimgrey rgba(0, 0, 0, 0);
+            border-color: rgba(0, 0, 0, 0) #034f2f rgba(0, 0, 0, 0);
 		}
 	</style>
+    <style>
+        .review_bckg{
+            background-size:contain;
+            background-repeat: no-repeat;
+            background-image:url({% static 'app/img/cat_face_low.png'%})
+        }
+        .divsprocr{
+            background: #f0f0f0;
+//          width: 70%;
+            height: 70%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            margin-right: 40px;
+            margin-top: 5%;
+            height: 300px;
+        }
+    </style>
 
 </head>
 <body> 
@@ -248,12 +265,12 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<ul id="menu">
-	<li data-menuanchor="firstPage"><a href="#firstPage"><img src="{% static 'app/img/logo.png'%}" style="height:45px; width:70px">  {{ local.0 }}</a></li>
+<ul id="menu" style="background: linear-gradient(to left, #d6d6d6, #a5a5a5); height:10%;">
+    <div class="col-sm-3 col-md-3 col-lg-3"><img src="{% static 'app/img/top_logo.png'%}" style="width:100%"></div>
+	<li data-menuanchor="firstPage"><a href="#firstPage">{{ local.0 }}</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">{{ local.1 }}</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">{{ local.2 }}</a></li>
 	<li data-menuanchor="4thpage"><a href="#4thpage">{{ local.3 }}</a></li>
-	<li data-menuanchor="5thpage"><a href="#5thpage">{{ local.4 }}</a></li>
 	<li data-menuanchor="lang" id="langBtn"><a>{{local.21}}</a></li>
 </ul>
 
@@ -261,7 +278,7 @@
 
 	<div class="section" id="section0" style="background:url({% static 'app/img/main.jpg'%}); background-color: white; background-size: cover; ">
             <div class="section-padding wow fadeIn delay-01s animated">
-			    <div class="banner-text" style="margin-left:60px; margin-top:90px; text-align:left; color: whitesmoke;">
+			    <div class="banner-text" style="margin-left:60px; margin-top:90px; text-align:right; border:none; text-transform:uppercase; color: whitesmoke;">
                     <h2 style="color: whitesmoke;">{{ local.5 }}</h2>
                     <p style="color: whitesmoke;">{{ local.6 }}</p>
                     <p style="font-weight:700;">{{ local.7 }}</p>
@@ -276,7 +293,7 @@
                     <div class="col-xs-7 col-md-9 col-lg-8 col-centered"  >
                         <img src="{{good.image.url}}" style="width:inherit" />
                     </div>
-                    <div class="col-xs-5 col-md-3 col-lg-4 col-centered">
+                    <div class="col-xs-5 col-md-3 col-lg-4 col-centered" style="margin-top: 5%;">
                         <h2 style="color:black;">{{good.good_name}}</h2>
                         <h5 style="color:black;">{{good.description}}</h5>
                         <div class="row">
@@ -292,12 +309,19 @@
 	</div>
 	<div class="section" id="section2" style="background:url({% static 'app/img/cat_white.png'%}); background-color: white; background-size: cover;">
         <div class="row">
-            <div class="col-md-4 col-xs-6">
-                <div id="mapdiv" style="height:200px"></div>
-                <p></p>
-                <div id="mapdiv1" style="height:200px"></div>
+            <div class="col-sm-offset-3 col-md-offset-7 col-lg-offset-5">
+                <div id="mapdiv" style="height:150px"></div>
             </div>
-            <div class="col-md-8 col-xs-6" style="color:black">
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+               <img src="{% static 'app/img/kitty.png'%}" style="width:100%">
+            </div>
+            <div class="col-sm-offset-3 col-md-offset-7 col-lg-offset-5">
+                <div id="mapdiv1" style="height:150px"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-6 col-md-offset-1" style="color:black">
                 <div class="container-fluid">
                     <div class="container">
 	                    <div >
@@ -307,24 +331,24 @@
                                <p></p>
                                    <div class="row" >  
                 <div class="col-lg-4 col-lg-offset-1  text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>+38050-818-78-02</p>
+                    <i class="fa fa-phone fa-2x sr-contact"></i>
+                    <h4>+38050-818-78-02</h4>
                 </div>                
                 <div class="col-lg-4  col-lg-offset-1 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>+38097-301-14-74</p>
+                    <i class="fa fa-phone fa-2x sr-contact"></i>
+                    <h4>+38097-301-14-74</h4>
                 </div>
-                               </div>
-                               <div class="row" >  
+              </div>
+              <div class="row" >  
                 <div class="col-lg-4 col-lg-offset-1 text-center">
-                    <i class="fa fa-map fa-4x sr-contact"></i>
-                    <p>{{ local.10 }}</p>
+                    <i class="fa fa-map fa-2x sr-contact"></i>
+                    <h5>{{ local.10 }}</h5>
                 </div>
                 <div class="col-lg-4 col-lg-offset-1 text-center">
-                    <i class="fa fa-map fa-4x sr-contact"></i>
-                    <p>{{ local.11 }}</p>
+                    <i class="fa fa-map fa-2x sr-contact"></i>
+                    <h5>{{ local.11 }}</h5>
                 </div>
-</div>
+            </div>
                     </div>
                              <div class="container-fluid">
                                  
@@ -341,19 +365,46 @@
                                  </div>
                    </div>
            </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+
         </div>
     </div>
-	<div class="section" style="background-color:dimgrey; background:url({% static 'app/img/cat_rew.png'%})" id="section3" >
-      <div class="container">
-        <div class="row">
-        <div class="col-md-12 is-animated">
-          <div class="contact-sec text-center">
-            <h2 style="color:black">{{ local.12 }}</h2>
-            <p style="color:black">{{ local.13 }}</p>
+	<div class="section review_bckg" id="section3" >
+      <div class="row">
+          <div class="col-sm-7 com-md-7 col-lg-7 col-sm-offset-5 com-offset-md-5 col-offset-lg-5">
+              <div class="divsprocr">
+              <div class="row">
+                  <div class="container">
+                      <div class="contact-sec text-center">
+                 <h5 style="color:black">{{ local.18 }}</h5>
+            </div>     
+         {%for review in reviews %}
+            <div class="jumbotron" style="padding:5px; background-color:transparent; border:groove;">
+                <p class="lead" style="text-align:left; padding:0px; ">{{review.reviewer_name}}<span style="text-align:right; float:right;font-size: x-small;">{{review.reviewer_date}}</span></p>
+                <p><h6 style="text-align:justify">{{review.reviewer_text}}</h6></p>
+            </div>
+                    {% if review.reviewer_answer %}
+                    <div class="jumbotron" style="padding:5px; margin-top:-30px; margin-left:50%; width:50%; background-color:transparent; border:groove;">
+                        <p class="lead" style="text-align:left; padding:0px; font-size:small; font-style:italic; font-weight: bold; ">Адміністрація Лапуні</p>
+                        <p><h6 style="text-align:justify">{{review.reviewer_answer}}</h6></p>
+                        </div>
+                  {%endif%}
+         {%endfor%}
+    </div>
+                  </div>
+              </div>
           </div>
-        </div>
-        
-        <div class="col-md-8 col-md-push-2">
+      </div>
+      <div class="row">
+          <div class="col-sm-7 com-md-7 col-lg-7 col-sm-offset-5 com-offset-md-5 col-offset-lg-5">
+              <div class="col-md-12">
+                    <div class="contact-sec text-center">
+                        <h4 style="color:black">{{ local.12 }}</h4>
+                        <h6 style="color:black">{{ local.13 }}</h6>
+                    </div>
+                  <div class="col-md-8 col-md-push-2">
             <div id="sendmessage">Вашо отзыв принят. Спаибо!</div>
             <div id="errormessage"></div>
             <form action="" method="post" role="form" class="">
@@ -367,38 +418,17 @@
                     <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" style="border-color:dimgray" name="reviewer_text" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="{{ local.16 }}"></textarea>
+                    <textarea class="form-control" style="height:70px; border-color:dimgray;" name="reviewer_text" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="{{ local.16 }}"></textarea>
                     <div class="validation"></div>
                 </div>
                 
                 <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">{{ local.17 }}</button></div>
             </form>
         </div>
-        
+             </div>
+          </div>
       </div>
     </div>
-    </div>
-    <div class="section" style="background-color:dimgrey; background:url({% static 'app/img/cat_blue.png'%}); background-size: cover;" id="section3" >
-         
-        <div class="container"style="padding:200px">
-            <div class="contact-sec text-center">
-                 <h2 style="color:black">{{ local.18 }}</h2>
-            </div>     
-         {%for review in reviews %}
-      <div class="jumbotron" style="padding:5px; background-color:transparent; border:groove;">
-         <p class="lead" style="text-align:left; padding:0px; ">{{review.reviewer_name}}<span style="text-align:right; float:right;font-size: x-small;">{{review.reviewer_date}}</span></p>
-         <p><h6 style="text-align:justify">{{review.reviewer_text}}</h6></p>
-          
-        </div>
-                    {% if review.reviewer_answer %}
-                    <div class="jumbotron" style="padding:5px; margin-top:-30px; margin-left:50%; width:50%; background-color:transparent; border:groove;">
-                        <p class="lead" style="text-align:left; padding:0px; font-size:small; font-style:italic; font-weight: bold; ">Адміністрація Лапуні</p>
-                        <p><h6 style="text-align:justify">{{review.reviewer_answer}}</h6></p>
-                        </div>
-                  {%endif%}
-         {%endfor%}
-    </div>
-</div>
 </div>
 
 <script src="{% static 'app/scripts/wow.min.js'%}"></script>
