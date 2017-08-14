@@ -232,7 +232,7 @@
         .review_bckg{
             background-size:contain;
             background-repeat: no-repeat;
-            background-image:url({% static 'app/img/cat_face_low.png'%})
+            background-image:url({% static 'app/img/cat_face_little.png'%})
         }
         .divsprocr{
             background: #f0f0f0;
@@ -265,7 +265,7 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<ul id="menu" style="background: linear-gradient(to left, #d6d6d6, #a5a5a5); height:10%;">
+<ul id="menu" style="background: linear-gradient(to left, #d6d6d6, #a5a5a5); height:10%;border-bottom: #004f30;border-bottom-style: inset;border-width: thick;">
     <div class="col-sm-3 col-md-3 col-lg-3"><img src="{% static 'app/img/top_logo.png'%}" style="width:100%"></div>
 	<li data-menuanchor="firstPage"><a href="#firstPage">{{ local.0 }}</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">{{ local.1 }}</a></li>
@@ -285,7 +285,7 @@
                   </div>
 		    </div>
     </div>
-	<div class="section" id="section1" style="background:url({% static 'app/img/background-image_4.png'%}); background-color: white; background-size: cover;">
+	<div class="section" id="section1">
         {% for good in goods %}
             <div class="slide">
                 
